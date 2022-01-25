@@ -6,23 +6,33 @@ import repositories.artist_repository as artist_repository
 
 
 
+
 artist_1 = Artist("Tenacious D")
 artist_repository.save(artist_1)
+artist_2 = Artist("Fallout Boy")
+artist_repository.save(artist_2)
 
 
 album_1 = Album("Pick Of Destiny", artist_1, "Rock")
 album_repository.save(album_1) 
+album_2 = Album("From Under The Cork Tree", artist_2, "Emo")
+album_repository.save(album_2)
 
-# artist1 = User("Deirdre", "Barlow")
-# user_repository.save(user1)
 
-# user_repository.delete_all()
-# task_repository.delete_all()
 
-# user1 = User("Deirdre", "Barlow")
-# user_repository.save(user1)
-# user2 = User("Ken", "Barlow")
-# user_repository.save(user2)
+# album_repository.delete_all()
+# artist_repository.delete_all()
+
+# returned = album_repository.select(13)
+
+
+found_artists = artist_repository.select_all()
+found_albums = album_repository.select_all()
+
+
+
+
+
 
 
 # task1 = Task("Crush my enemies", user1, 10)

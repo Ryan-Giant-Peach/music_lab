@@ -23,26 +23,21 @@ def save(album):
     album.id = id
     return album
 
-# def select(id):
-#     task = None
-#     sql = "SELECT * FROM tasks WHERE id = %s"
-#     values = [id]
-#     result = run_sql(sql, values)[0]
-#     if result is not None:
-#         user = user_repository.select(result['user_id'])
-#         task = Task(result['description'], user, result['duration'], result['completed'], result['id'])
-#     return task
+def select(id):
+    album = None
+    sql = "SELECT * FROM albums WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    if result is not None:
+        artist = artist_repository.select(result['artist_id'])
+        album = Album(result['album_name'], artist, result['genre'], result['id'])
+    return album
 
-# def delete_all():
-#     sql = "DELETE FROM tasks"
-#     run_sql(sql)
+def delete_all():
+    sql = "DELETE FROM albums"
+    run_sql(sql)
 
 # def delete(id):
-#     sql = "DELETE FROM tasks WHERE id = %s"
+#     sql = "DELETE FROM albums WHERE id = %s"
 #     values = [id]
-#     run_sql(sql, values)
-
-# def update(task):
-#     sql = "UPDATE tasks SET (description, user_id, duration, completed) = (%s, %s, %s, %s) WHERE id = %s"
-#     values = [task.description, task.user.id, task.duration, task.completed, task.id]
 #     run_sql(sql, values)
